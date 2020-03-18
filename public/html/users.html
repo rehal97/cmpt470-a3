@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+   <link rel="stylesheet" type="text/css" href="layout.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Users</title>
+</head>
+
+<body onload="init()">
+  <!-- <div class="container"> -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Users</h1>
+        <p class="lead">A simple app which allows you to add users to a table.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-1 col-sm-1" >
+      </div>
+
+      <div class="col-lg-6 col-md-10 col-sm-10">
+        <h2>New User</h2>
+        <form>
+          <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="textbox" class="form-control" id="name" placeholder="Enter Name">
+          </div>
+
+          <div class="form-group">
+            <label for="inputEmail">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+          </div>
+
+          <div class="form-group">
+            <label for="inputAge">Age</label>
+            <input type="number" min="0" class="form-control" id="age" placeholder="Enter Age">
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn" onclick="return updatePage()">Submit</button>
+        </form>
+
+        <div class="alert alert-success" id="successAlert" role="alert">
+          User added successfully!
+        </div>
+
+        <div class="alert alert-danger" id="failAlert" role="alert">
+          Invalid input, please try again.
+        </div>
+
+      </div>
+
+      <div class="col-lg-3 col-md-1 col-sm-1">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-1 col-sm-1">
+      </div>
+
+      <div class="col-lg-6 col-md-10 col-sm-10" id="usersTable">
+        <h2>Registered Users</h2>
+
+        <div class="btn-group" id="sortBtns" role="group">
+          <button type="sortNum" class="btn btn-primary" onclick="sortByNum()">Sort by ID</button>
+          <button type="sortName" class="btn btn-primary" onclick="sortByName()">Sort by Name</button>
+          <button type="sortEmail" class="btn btn-primary" onclick="sortByEmail()">Sort by E-mail</button>
+          <button type="sortAge" class="btn btn-primary" onclick="sortByAge()">Sort by Age</button>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Age</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+
+        <button type="button" class="btn btn-danger" id="deleteAllBtn" data-toggle="modal" data-target="#confirm-delete">Delete all users</button>
+
+        <div class="alert alert-dark" id = "avgAgeMsg" role="alert">
+          <b>The average age of all users is <span id="avgAge">30</span></b>
+        </div>
+
+      </div>
+
+      <div class="col-lg-3 col-md-1 col-sm-1">
+      </div>
+    </div>
+
+    <div class="modal" id="confirm-delete">
+     <div class="modal-dialog">
+       <div class="modal-content">
+
+         <!-- Modal Header -->
+         <div class="modal-header">
+           <h4 class="modal-title">Delete all users</h4>
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+
+         <!-- Modal body -->
+         <div class="modal-body">
+           <p>You are about to delete all user records, this procedure is irreversible.</p>
+           <p>Do you want to proceed?</p>
+           <p class="debug-url"></p>
+         </div>
+
+         <!-- Modal footer -->
+         <div class="modal-footer">
+           <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleteAllUsers()">Delete</button>
+         </div>
+
+       </div>
+     </div>
+
+</body>
+<script src="users.js"></script>
+
+</html>

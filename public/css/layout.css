@@ -1,0 +1,24 @@
+
+.display-4, .lead {
+  text-align: center;
+}
+
+#submitBtn, #deleteAllBtn {
+  width : 100%;
+}
+
+form {
+  margin-bottom: 1em;
+}
+
+#sortBtns {
+  margin-bottom: 1em;
+}
+
+#deleteAllBtn {
+  margin-bottom: 1em;
+}
+
+#successAlert, #failAlert, #usersTable, #avgAgeMsg, #sortBtns {
+  display: none;
+}

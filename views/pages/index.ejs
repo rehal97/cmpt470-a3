@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8" />
+   <link rel="stylesheet" type="text/css" href="/css/layout.css">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Users</title>
+</head>
+
+<body>
+  <!-- <div class="container"> -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Users</h1>
+        <p class="lead">A simple app which allows you to add users to a table.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-1 col-sm-1" >
+      </div>
+
+      <div class="col-lg-6 col-md-10 col-sm-10">
+        <h2>New User</h2>
+        <form action="/user/create" method="POST">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="textbox" class="form-control" name="fname" placeholder="Enter First Name">
+            <label for="lname">Last Name</label>
+            <input type="textbox" class="form-control" name="lname" placeholder="Enter Last Name">
+          </div>
+
+          <div class="form-group">
+            <label for="inputEmail">Email address</label>
+            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter Email">
+          </div>
+
+          <div class="form-group">
+            <label for="inputAge">Age</label>
+            <input type="number" min="0" class="form-control" name="age" placeholder="Enter Age">
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+        </form>
+
+      </div>
+
+      <div class="col-lg-3 col-md-1 col-sm-1">
+      </div>
+    </div>
+
+    
+</body>
+<script src="/js/users.js"></script>
+
+</html>

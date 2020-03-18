@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Users</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-3">Users</h1>
+
+        <!-- <a href="/group/create"><button type="button" class="btn btn-primary" name="group">Create Group</button></a> -->
+
+        <% if (users) { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.UserID %></td>
+                    <td><%= user.FirstName %></td>
+                    <td><%= user.LastName %></td>
+                    <td><%= user.Age %></td>
+                    <td><%= user.Email %></td>
+                    <td><form action="/user/delete/?userID=<%= user.UserID %>" method="POST">
+                        <button type="submit" class="btn btn-danger" id="submitBtn"><i class="fas fa-times"></i></button>    
+                        </form>
+                    </td>
+                    <td><a href="/user/update/?userID=<%= user.UserID %>">
+                        <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fas fa-edit"></i></button>
+                        </a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } %>
+
+    </div>
+
+</body>
+
+
+</html>
